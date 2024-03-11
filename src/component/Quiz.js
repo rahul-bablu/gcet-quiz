@@ -4,17 +4,14 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import '../App.css'
 function Quiz() {
+    const [selected, setSelected] = useState('');
+    const question = 'What is the output of the following Code ?';
     const code = `
         int main() {
             printf("Hello World !!");
             return 0;
         }
     `;    
-    const [selected, setSelected] = useState('');
-    function handleSelection(option) {
-        setSelected(option);
-    }
-    const question = 'What is the output of the following Code ?';
     const options = ['Hello Friend !!', 'Hello India !!', 'Hello World !!', 'Hello !!'];
     return (
         <Container className='run-animation'>
@@ -62,7 +59,7 @@ function Quiz() {
                         <ListItem
                             key={option}
                             Button
-                            onClick={() => { handleSelection(option) }}
+                            onClick={() => { setSelected(option) }}
                             onBlur={() => {setSelected('')}}
                             sx={{
                                 paddingLeft: 3,
